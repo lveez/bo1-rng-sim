@@ -14,19 +14,10 @@ double FirstBox(size_t num_repetitions, const std::string& map, std::span<std::s
 std::vector<size_t> Trades(size_t num_repetitions, const std::string& map, const std::string& goal_weapon, bool mule);
 
 int main() {
-	std::vector<size_t> res = Trades(100000, "ascension", "tgun", true);
 
-	/* get mean */
-	const auto mean = stats::mean<size_t>(res);
-
-	/* count occurences of each trade */
-	std::map<size_t, size_t> counts;
-	for (auto r : res) {
-		counts[r] += 1;
-	}
-
-	std::cout << mean;
-
+	std::array<std::string, 2> weaps = { "tgun", "gersch" };
+	const auto chance = FirstBox(10000000, "ascension", weaps);
+	std::cout << chance;
 	return 0;
 }
 

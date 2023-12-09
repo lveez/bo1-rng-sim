@@ -49,10 +49,16 @@ namespace sim {
 
 		std::vector<bool> found(goal_weapons.size());
 		
+		bool any_found = false;
 		while (true) {
-			SetWeaponEmpty(2);
-			if (!mule) {
-				SetWeaponEmpty(1);
+			if (mule) {
+				SetWeaponEmpty(2);
+				if (!any_found) {
+					SetWeaponEmpty(1);
+				}
+			}
+			else {
+				SetWeaponEmpty(2);
 			}
 
 			auto rand = SimHit();
@@ -63,6 +69,10 @@ namespace sim {
 
 			auto it = std::find(goal_weapons.begin(), goal_weapons.end(), rand);
 			if (it != goal_weapons.end()) {
+				if (!IsTactical(rand)) {
+					any_found = true;
+				}
+
 				auto ind = it - goal_weapons.begin();
 				found[ind] = true;
 			}
