@@ -1,7 +1,6 @@
 #pragma once
 
 #include "g_rand.hpp"
-#include <ostream>
 #include "stats.hpp"
 
 namespace sim {

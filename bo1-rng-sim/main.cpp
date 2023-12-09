@@ -14,7 +14,7 @@ double FirstBox(size_t num_repetitions, const std::string& map, std::span<std::s
 std::vector<size_t> Trades(size_t num_repetitions, const std::string& map, const std::string& goal_weapon, bool mule);
 
 int main() {
-	std::vector<size_t> res = Trades(10000000, "ascension", "tgun", true);
+	std::vector<size_t> res = Trades(100000, "ascension", "tgun", true);
 
 	/* get mean */
 	const auto mean = stats::mean<size_t>(res);
@@ -24,6 +24,8 @@ int main() {
 	for (auto r : res) {
 		counts[r] += 1;
 	}
+
+	std::cout << mean;
 
 	return 0;
 }

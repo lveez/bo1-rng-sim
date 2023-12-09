@@ -1,7 +1,6 @@
 #include "box.hpp"
 
 #include <vector>
-#include <iostream>
 
 namespace sim {
 

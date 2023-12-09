@@ -5,7 +5,6 @@
 #include <span>
 #include <algorithm>
 #include <vector>
-#include <iostream>
 
 namespace stats {
 	[[nodiscard]] double binom(unsigned int n, unsigned int x, double p);
